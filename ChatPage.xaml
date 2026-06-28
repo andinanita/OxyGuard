@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.ChatPage"
+             BackgroundColor="#F0F7FF">
+
+    <Grid RowDefinitions="Auto,*,Auto,Auto">
+
+        <!-- Header -->
+        <BoxView Grid.Row="0" Color="#1A5276" HeightRequest="180"/>
+        <VerticalStackLayout Grid.Row="0" BackgroundColor="Transparent"
+                             Padding="24,48,24,24" Spacing="4">
+            <Label Text="🤖 Asisten Kesehatan" FontSize="24"
+                   FontAttributes="Bold" TextColor="#FFFFFF"
+                   HorizontalOptions="Center"/>
+            <Label Text="Tanya apapun tentang PPOK"
+                   FontSize="13" TextColor="#AED6F1"
+                   HorizontalOptions="Center"/>
+        </VerticalStackLayout>
+
+        <!-- Chat Area -->
+        <ScrollView Grid.Row="1" x:Name="ScrollChat">
+            <VerticalStackLayout x:Name="StackChat" Padding="16" Spacing="12"/>
+        </ScrollView>
+
+        <!-- Input Area -->
+        <Grid Grid.Row="2" ColumnDefinitions="*,Auto" Padding="16,8"
+              BackgroundColor="White">
+            <Frame Grid.Column="0" CornerRadius="24" Padding="0"
+                   HasShadow="False" BorderColor="#AED6F1"
+                   BackgroundColor="#EAF4FB">
+                <Entry x:Name="EntryChat"
+                       Placeholder="Ketik pertanyaan tentang PPOK..."
+                       PlaceholderColor="#9CA3AF"
+                       BackgroundColor="Transparent"
+                       TextColor="#111827"
+                       Margin="16,0"/>
+            </Frame>
+            <Button Grid.Column="1" Text="➤"
+                    BackgroundColor="#1A5276" TextColor="White"
+                    CornerRadius="24" WidthRequest="48" HeightRequest="48"
+                    Margin="8,0,0,0"
+                    Clicked="OnKirimClicked"/>
+        </Grid>
+
+        <!-- Tombol Kembali -->
+        <Button Grid.Row="3" Text="← Kembali ke Dashboard"
+                BackgroundColor="Transparent"
+                TextColor="#1A5276" FontSize="13"
+                Margin="0,0,0,8"
+                Clicked="OnKembaliClicked"/>
+
+    </Grid>
+</ContentPage>

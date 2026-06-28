@@ -1,0 +1,102 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.MainPage"
+             BackgroundColor="#F0FDF4">
+
+    <Grid>
+        <!-- Background gradient feel dengan BoxView -->
+        <BoxView Color="#16A34A" VerticalOptions="Start" HeightRequest="320" />
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Header Section -->
+                <VerticalStackLayout BackgroundColor="Transparent" Padding="30,60,30,30" Spacing="8" HorizontalOptions="Center">
+
+                    <!-- Ilustrasi minimalis paru-paru (pakai emoji + shape) -->
+                    <Frame BackgroundColor="#DCFCE7" CornerRadius="60" WidthRequest="110" HeightRequest="110"
+                           HorizontalOptions="Center" HasShadow="False" Padding="0">
+                        <Label Text="🫁" FontSize="56" HorizontalOptions="Center" VerticalOptions="Center" />
+                    </Frame>
+
+                    <Label Text="OxyGuard" FontSize="30" FontAttributes="Bold"
+                           HorizontalOptions="Center" TextColor="#FFFFFF" Margin="0,12,0,0"/>
+                    <Label Text="Sistem Deteksi Dini PPOK" FontSize="14"
+                           HorizontalOptions="Center" TextColor="#BBF7D0" />
+                    <Label Text="Penyakit Paru Obstruktif Kronik" FontSize="12"
+                           HorizontalOptions="Center" TextColor="#BBF7D0" />
+                </VerticalStackLayout>
+
+                <!-- Card Login -->
+                <Frame BackgroundColor="#FFFFFF" CornerRadius="24" Padding="32,36"
+                       HasShadow="True" Margin="24,0,24,40">
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label Text="Masuk ke Sistem" FontSize="20" FontAttributes="Bold"
+                               TextColor="#14532D" HorizontalOptions="Center" />
+                        <Label Text="Masukkan Identitas Diri Anda untuk melanjutkan"
+                               FontSize="12" TextColor="#6B7280" HorizontalOptions="Center"
+                               Margin="0,0,0,8" />
+
+                        <!-- Username -->
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Username" FontSize="13" TextColor="#374151" FontAttributes="Bold"/>
+                            <Frame BackgroundColor="#F0FDF4" CornerRadius="10" Padding="0" HasShadow="False"
+                                   BorderColor="#BBF7D0">
+                                <Entry x:Name="EntryUsername"
+                                       Placeholder="Masukkan username"
+                                       PlaceholderColor="#9CA3AF"
+                                       BackgroundColor="Transparent"
+                                       TextColor="#111827"
+                                       Margin="8,0"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <!-- Password -->
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Password" FontSize="13" TextColor="#374151" FontAttributes="Bold"/>
+                            <Frame BackgroundColor="#F0FDF4" CornerRadius="10" Padding="0" HasShadow="False"
+                                   BorderColor="#BBF7D0">
+                                <Entry x:Name="EntryPassword"
+                                       Placeholder="Masukkan password"
+                                       PlaceholderColor="#9CA3AF"
+                                       IsPassword="True"
+                                       BackgroundColor="Transparent"
+                                       TextColor="#111827"
+                                       Margin="8,0"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <!-- Tombol Login -->
+                        <Button Text="MASUK SISTEM"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                BackgroundColor="#16A34A"
+                                TextColor="White"
+                                CornerRadius="12"
+                                HeightRequest="52"
+                                Margin="0,8,0,0"
+                                Clicked="OnLoginClicked" />
+
+                        <!-- Divider -->
+                        <BoxView Color="#E5E7EB" HeightRequest="1" Margin="0,4"/>
+
+                        <!-- Register -->
+                        <Button Text="Belum punya akun? Daftar di sini"
+                                BackgroundColor="Transparent"
+                                TextColor="#16A34A"
+                                FontSize="13"
+                                Clicked="OnGoToRegisterClicked" />
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Footer -->
+                <Label Text="© 2026 OxyGuard — Sistem Kesehatan Paru"
+                       FontSize="11" TextColor="#9CA3AF"
+                       HorizontalOptions="Center" Margin="0,0,0,24"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

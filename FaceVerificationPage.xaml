@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.FaceVerificationPage"
+             BackgroundColor="#F0FDF4">
+
+    <Grid>
+        <!-- Header hijau -->
+        <BoxView Color="#16A34A" VerticalOptions="Start" HeightRequest="220" />
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Header -->
+                <VerticalStackLayout BackgroundColor="Transparent" Padding="30,50,30,24"
+                                     Spacing="6" HorizontalOptions="Center">
+                    <Frame BackgroundColor="#DCFCE7" CornerRadius="50" WidthRequest="90"
+                           HeightRequest="90" HorizontalOptions="Center"
+                           HasShadow="False" Padding="0">
+                        <Label Text="🔍" FontSize="44" HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Label x:Name="LabelRole" Text="Verifikasi Identitas" FontSize="26"
+                           FontAttributes="Bold" HorizontalOptions="Center"
+                           TextColor="#FFFFFF" Margin="0,10,0,0"/>
+                    <Label Text="Tingkat kemiripan diperlukan: &gt;75%"
+                           FontSize="13" HorizontalOptions="Center" TextColor="#BBF7D0"/>
+                </VerticalStackLayout>
+
+                <!-- Card -->
+                <Frame BackgroundColor="#FFFFFF" CornerRadius="24" Padding="28,32"
+                       HasShadow="True" Margin="24,0,24,32">
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label Text="Posisikan wajah Anda di dalam frame"
+                               FontSize="13" TextColor="#6B7280"
+                               HorizontalOptions="Center"/>
+
+                        <!-- Kamera Preview -->
+                        <Frame CornerRadius="12" Padding="0"
+                               IsClippedToBounds="True"
+                               BackgroundColor="#F0FDF4"
+                               BorderColor="#BBF7D0"
+                               HeightRequest="300">
+                            <Grid>
+                                <Image x:Name="CameraPreview" Aspect="AspectFill"/>
+                                <VerticalStackLayout VerticalOptions="Center"
+                                                     HorizontalOptions="Center"
+                                                     Spacing="6">
+                                    <Label Text="🔍" FontSize="40"
+                                           HorizontalOptions="Center"/>
+                                    <Label Text="Kamera belum aktif" FontSize="12"
+                                           TextColor="#9CA3AF"
+                                           HorizontalOptions="Center"/>
+                                </VerticalStackLayout>
+                            </Grid>
+                        </Frame>
+
+                        <!-- Divider -->
+                        <BoxView Color="#E5E7EB" HeightRequest="1" Margin="0,4"/>
+
+                        <!-- Tombol Verifikasi -->
+                        <Button Text="VERIFIKASI WAJAH SAYA"
+                                FontAttributes="Bold"
+                                FontSize="15"
+                                BackgroundColor="#16A34A"
+                                TextColor="White"
+                                CornerRadius="12"
+                                HeightRequest="52"
+                                Clicked="OnVerifyClicked"/>
+
+                        <!-- Tombol Lanjut -->
+                        <Button x:Name="BtnLanjut"
+                                Text="AKSES DITERIMA — MASUK DASHBOARD"
+                                IsVisible="False"
+                                FontAttributes="Bold"
+                                FontSize="14"
+                                BackgroundColor="#DCFCE7"
+                                TextColor="#15803D"
+                                CornerRadius="12"
+                                HeightRequest="52"
+                                Clicked="OnNextClicked"/>
+
+                        <!-- Kembali -->
+                        <Button Text="Kembali ke Login"
+                                BackgroundColor="Transparent"
+                                TextColor="#DC2626"
+                                FontSize="13"
+                                Clicked="OnCancelClicked"/>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Footer -->
+                <Label Text="© 2026 OxyGuard — Sistem Kesehatan Paru"
+                       FontSize="11" TextColor="#9CA3AF"
+                       HorizontalOptions="Center" Margin="0,0,0,24"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

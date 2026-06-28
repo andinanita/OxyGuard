@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.DashboardPengawasPage"
+             BackgroundColor="#F0FDF4">
+
+    <Grid>
+        <BoxView Color="#16A34A" VerticalOptions="Start" HeightRequest="180" />
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Header -->
+                <VerticalStackLayout BackgroundColor="Transparent"
+                                     Padding="24,48,24,24" Spacing="4">
+                    <Label Text="👨‍⚕️ Dashboard Pengawas" FontSize="24"
+                           FontAttributes="Bold" TextColor="#FFFFFF"
+                           HorizontalOptions="Center"/>
+                    <Label Text="Pantau kondisi semua pengguna wearable"
+                           FontSize="13" TextColor="#BBF7D0"
+                           HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Padding="20" Spacing="16">
+
+                    <!-- Ringkasan Status -->
+                    <Grid ColumnDefinitions="*,*,*" ColumnSpacing="10">
+                        <Frame Grid.Column="0" BackgroundColor="#DCFCE7"
+                               CornerRadius="12" Padding="12" HasShadow="False"
+                               BorderColor="#BBF7D0">
+                            <VerticalStackLayout>
+                                <Label Text="✅ Normal" FontSize="11" TextColor="#15803D"/>
+                                <Label x:Name="LabelNormal" Text="0" FontSize="26"
+                                       FontAttributes="Bold" TextColor="#15803D"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" BackgroundColor="#FEF9C3"
+                               CornerRadius="12" Padding="12" HasShadow="False"
+                               BorderColor="#FDE68A">
+                            <VerticalStackLayout>
+                                <Label Text="⚠️ Waspada" FontSize="11" TextColor="#B45309"/>
+                                <Label x:Name="LabelWaspada" Text="0" FontSize="26"
+                                       FontAttributes="Bold" TextColor="#B45309"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame Grid.Column="2" BackgroundColor="#FEE2E2"
+                               CornerRadius="12" Padding="12" HasShadow="False"
+                               BorderColor="#FECACA">
+                            <VerticalStackLayout>
+                                <Label Text="🚨 Bahaya" FontSize="11" TextColor="#DC2626"/>
+                                <Label x:Name="LabelBerbahaya" Text="0" FontSize="26"
+                                       FontAttributes="Bold" TextColor="#DC2626"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+
+                    <!-- List Pengguna -->
+                    <Frame BackgroundColor="White" CornerRadius="16" Padding="20"
+                           HasShadow="True" BorderColor="#DCFCE7">
+                        <VerticalStackLayout Spacing="8">
+                            <Label Text="👤 Daftar Pengguna" FontSize="15"
+                                   TextColor="#15803D" FontAttributes="Bold"/>
+                            <BoxView Color="#E5E7EB" HeightRequest="1"/>
+                            <CollectionView x:Name="ListPengguna" HeightRequest="400">
+                                <CollectionView.ItemTemplate>
+                                    <DataTemplate>
+                                        <Frame Margin="0,4" CornerRadius="10"
+                                               BackgroundColor="#F0FDF4"
+                                               BorderColor="#DCFCE7" Padding="14">
+                                            <Grid ColumnDefinitions="*,Auto">
+                                                <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                                    <Label Text="{Binding Nama}"
+                                                           FontSize="14"
+                                                           FontAttributes="Bold"
+                                                           TextColor="#14532D"/>
+                                                    <Label Text="{Binding StatusMerokok}"
+                                                           FontSize="11"
+                                                           TextColor="{Binding MerokokColor}"/>
+                                                    <Label Text="{Binding StatusTerakhir}"
+                                                           FontSize="11"
+                                                           TextColor="#6B7280"/>
+                                                </VerticalStackLayout>
+                                                <Label Grid.Column="1"
+                                                       Text="{Binding StatusBadge}"
+                                                       FontSize="12"
+                                                       FontAttributes="Bold"
+                                                       TextColor="{Binding StatusColor}"
+                                                       VerticalOptions="Center"/>
+                                            </Grid>
+                                        </Frame>
+                                    </DataTemplate>
+                                </CollectionView.ItemTemplate>
+                            </CollectionView>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <!-- Tombol Logout -->
+                    <Button Text="Keluar dari Sistem"
+                            BackgroundColor="Transparent"
+                            TextColor="#DC2626"
+                            FontSize="14"
+                            Clicked="OnLogoutClicked"/>
+
+                    <!-- Footer -->
+                    <Label Text="© 2026 OxyGuard — Sistem Kesehatan Paru"
+                           FontSize="11" TextColor="#9CA3AF"
+                           HorizontalOptions="Center" Margin="0,0,0,16"/>
+
+                </VerticalStackLayout>
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

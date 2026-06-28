@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.DeteksiPage"
+             BackgroundColor="#F0F7FF">
+
+    <Grid>
+        <BoxView Color="#1A5276" VerticalOptions="Start" HeightRequest="220"/>
+
+        <ScrollView>
+            <VerticalStackLayout Spacing="0">
+
+                <!-- Header -->
+                <VerticalStackLayout BackgroundColor="Transparent" Padding="30,50,30,24"
+                                     Spacing="6" HorizontalOptions="Center">
+                    <Frame BackgroundColor="#D6EAF8" CornerRadius="50" WidthRequest="90"
+                           HeightRequest="90" HorizontalOptions="Center"
+                           HasShadow="False" Padding="0">
+                        <Label Text="🫁" FontSize="44" HorizontalOptions="Center"
+                               VerticalOptions="Center"/>
+                    </Frame>
+                    <Label Text="Deteksi PPOK" FontSize="26" FontAttributes="Bold"
+                           HorizontalOptions="Center" TextColor="#FFFFFF" Margin="0,10,0,0"/>
+                    <Label Text="Masukkan data sensor untuk analisis"
+                           FontSize="13" HorizontalOptions="Center" TextColor="#AED6F1"/>
+                </VerticalStackLayout>
+
+                <!-- Card Input -->
+                <Frame BackgroundColor="#FFFFFF" CornerRadius="24" Padding="28,32"
+                       HasShadow="True" Margin="24,0,24,16">
+                    <VerticalStackLayout Spacing="16">
+
+                        <Label Text="📊 Data Sensor" FontSize="15"
+                               TextColor="#1A5276" FontAttributes="Bold"/>
+                        <BoxView Color="#E5E7EB" HeightRequest="1"/>
+
+                        <!-- SpO2 -->
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="SpO2 (%)" FontSize="13" TextColor="#374151"
+                                   FontAttributes="Bold"/>
+                            <Frame BackgroundColor="#EAF4FB" CornerRadius="10" Padding="0"
+                                   HasShadow="False" BorderColor="#AED6F1">
+                                <Entry x:Name="EntrySpO2" Placeholder="Contoh: 95"
+                                       PlaceholderColor="#9CA3AF" BackgroundColor="Transparent"
+                                       TextColor="#111827" Keyboard="Numeric" Margin="8,0"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <!-- Heart Rate -->
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Heart Rate (bpm)" FontSize="13" TextColor="#374151"
+                                   FontAttributes="Bold"/>
+                            <Frame BackgroundColor="#EAF4FB" CornerRadius="10" Padding="0"
+                                   HasShadow="False" BorderColor="#AED6F1">
+                                <Entry x:Name="EntryHR" Placeholder="Contoh: 80"
+                                       PlaceholderColor="#9CA3AF" BackgroundColor="Transparent"
+                                       TextColor="#111827" Keyboard="Numeric" Margin="8,0"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <!-- Frekuensi Napas -->
+                        <VerticalStackLayout Spacing="4">
+                            <Label Text="Frekuensi Napas (/menit)" FontSize="13"
+                                   TextColor="#374151" FontAttributes="Bold"/>
+                            <Frame BackgroundColor="#EAF4FB" CornerRadius="10" Padding="0"
+                                   HasShadow="False" BorderColor="#AED6F1">
+                                <Entry x:Name="EntryNapas" Placeholder="Contoh: 18"
+                                       PlaceholderColor="#9CA3AF" BackgroundColor="Transparent"
+                                       TextColor="#111827" Keyboard="Numeric" Margin="8,0"/>
+                            </Frame>
+                        </VerticalStackLayout>
+
+                        <Button Text="🔍 ANALISIS SEKARANG"
+                                FontAttributes="Bold" FontSize="15"
+                                BackgroundColor="#1A5276" TextColor="White"
+                                CornerRadius="12" HeightRequest="52"
+                                Clicked="OnAnalisisClicked"/>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Card Hasil -->
+                <Frame x:Name="CardHasil" BackgroundColor="#FFFFFF" CornerRadius="24"
+                       Padding="28,32" HasShadow="True" Margin="24,0,24,32"
+                       IsVisible="False">
+                    <VerticalStackLayout Spacing="12">
+
+                        <Label Text="📋 Hasil Analisis" FontSize="15"
+                               TextColor="#1A5276" FontAttributes="Bold"/>
+                        <BoxView Color="#E5E7EB" HeightRequest="1"/>
+
+                        <Label x:Name="LabelHasil" FontSize="28" FontAttributes="Bold"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="LabelSkor" FontSize="13" TextColor="#6B7280"
+                               HorizontalOptions="Center"/>
+                        <Label x:Name="LabelSaran" FontSize="13" TextColor="#374151"
+                               HorizontalOptions="Center" LineBreakMode="WordWrap"/>
+
+                    </VerticalStackLayout>
+                </Frame>
+
+                <!-- Kembali -->
+                <Button Text="Kembali ke Dashboard"
+                        BackgroundColor="Transparent"
+                        TextColor="#1A5276" FontSize="13"
+                        Margin="0,0,0,24"
+                        Clicked="OnKembaliClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Grid>
+</ContentPage>

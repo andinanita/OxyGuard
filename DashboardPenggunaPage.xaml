@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pengolahancitra.DashboardPenggunaPage"
+             BackgroundColor="#F0F7FF">
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="16">
+
+            <!-- Header -->
+            <Label x:Name="LabelWelcome"
+                   FontSize="22" FontAttributes="Bold"
+                   TextColor="#1A5276" HorizontalOptions="Center"/>
+            <Label x:Name="LabelRole"
+                   FontSize="13" TextColor="#5D6D7E"
+                   HorizontalOptions="Center" Margin="0,-10,0,0"/>
+
+            <!-- Status Merokok -->
+            <Frame x:Name="CardMerokok" CornerRadius="12" Padding="14"
+                   HasShadow="False" BorderColor="#BBF7D0">
+                <Grid ColumnDefinitions="Auto,*">
+                    <Label Grid.Column="0" Text="🚬" FontSize="20"
+                           VerticalOptions="Center" Margin="0,0,10,0"/>
+                    <VerticalStackLayout Grid.Column="1">
+                        <Label Text="Status Merokok" FontSize="11"
+                               TextColor="#6B7280"/>
+                        <Label x:Name="LabelMerokok" FontSize="14"
+                               FontAttributes="Bold"/>
+                    </VerticalStackLayout>
+                </Grid>
+            </Frame>
+
+            <!-- CARD: Status PPOK -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="20"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="🫁 Status PPOK Kamu" FontSize="15"
+                           TextColor="#5D6D7E" FontAttributes="Bold"/>
+                    <Label x:Name="LabelStatus" FontSize="28"
+                           FontAttributes="Bold" HorizontalOptions="Center"/>
+                    <Label x:Name="LabelStatusDesc" FontSize="13"
+                           TextColor="#7F8C8D" HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- CARD: Data Terakhir -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="20"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📊 Hasil Pengukuran Terakhir" FontSize="15"
+                           TextColor="#5D6D7E" FontAttributes="Bold"/>
+                    <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto"
+                          ColumnSpacing="8">
+                        <Frame Grid.Column="0" BackgroundColor="#EAF4FB"
+                               CornerRadius="12" Padding="12">
+                            <VerticalStackLayout>
+                                <Label Text="SpO2" FontSize="12" TextColor="#5D6D7E"/>
+                                <Label x:Name="LabelSpO2" FontSize="20"
+                                       FontAttributes="Bold" TextColor="#1A5276"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame Grid.Column="1" BackgroundColor="#EAF4FB"
+                               CornerRadius="12" Padding="12">
+                            <VerticalStackLayout>
+                                <Label Text="Heart Rate" FontSize="12"
+                                       TextColor="#5D6D7E"/>
+                                <Label x:Name="LabelHR" FontSize="20"
+                                       FontAttributes="Bold" TextColor="#1A5276"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                        <Frame Grid.Column="2" BackgroundColor="#EAF4FB"
+                               CornerRadius="12" Padding="12">
+                            <VerticalStackLayout>
+                                <Label Text="Frek. Napas" FontSize="12"
+                                       TextColor="#5D6D7E"/>
+                                <Label x:Name="LabelNapas" FontSize="20"
+                                       FontAttributes="Bold" TextColor="#1A5276"/>
+                            </VerticalStackLayout>
+                        </Frame>
+                    </Grid>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- CARD: Riwayat -->
+            <Frame BackgroundColor="White" CornerRadius="16" Padding="20"
+                   HasShadow="True">
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="📅 Riwayat Pengukuran" FontSize="15"
+                           TextColor="#5D6D7E" FontAttributes="Bold"/>
+                    <CollectionView x:Name="ListRiwayat" HeightRequest="150">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid ColumnDefinitions="*,Auto" Padding="0,6">
+                                    <Label Grid.Column="0" Text="{Binding Tanggal}"
+                                           TextColor="#2C3E50" FontSize="13"/>
+                                    <Label Grid.Column="1" Text="{Binding Status}"
+                                           FontSize="13" FontAttributes="Bold"
+                                           TextColor="{Binding StatusColor}"/>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Tombol Mulai Deteksi -->
+            <Button Text="🔍 Mulai Deteksi PPOK"
+                    BackgroundColor="#1A5276" TextColor="White"
+                    CornerRadius="12" FontSize="16" FontAttributes="Bold"
+                    HeightRequest="54"
+                    Clicked="OnMulaiDeteksiClicked"/>
+
+            <!-- Tombol Chat -->
+            <Button Text="🤖 Tanya Asisten Kesehatan"
+                    BackgroundColor="#EAF4FB" TextColor="#1A5276"
+                    CornerRadius="12" FontSize="14" FontAttributes="Bold"
+                    HeightRequest="54"
+                    Clicked="OnChatClicked"/>
+
+            <!-- Tombol Logout -->
+            <Button Text="Keluar" BackgroundColor="Transparent"
+                    TextColor="#E74C3C" FontSize="14"
+                    Clicked="OnLogoutClicked"/>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
